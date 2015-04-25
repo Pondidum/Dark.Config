@@ -1,0 +1,10 @@
+## Interface: 60000
+## Title: Dark.Config
+## Author: Darkend / DarkStorm / Zenedar / EU
+## Version: 0.0.1
+## Notes: DarkUI Configuration Window
+
+initialise.lua
+config.lua
+
+run.lua
