@@ -15,6 +15,12 @@ components.window = function(self, config)
 		height = 600
 	})
 
+	local header = self:frame({
+		name = "$parentHeader",
+		parent = container,
+		height = 40,
+	})
+
 	local categoryList = self:scrollFrame({
 		name = "$parentCategoriesList",
 		parent = container,
@@ -35,12 +41,17 @@ components.window = function(self, config)
 	container:SetPoint("CENTER")
 	style:frame(container)
 
-	categoryList:SetPoint("TOPLEFT", spacing, -spacing)
+	header:SetPoint("TOPLEFT", spacing, -spacing)
+	header:SetPoint("TOPRIGHT", -spacing, -spacing)
+
+	categoryList:SetPoint("LEFT", spacing, 0)
+	categoryList:SetPoint("TOP", header, "BOTTOM", 0, -spacing)
 	categoryList:SetPoint("BOTTOM", buttonPanel, "TOP", 0, spacing)
 	style:frame(categoryList)
 
-	optionsHost:SetPoint("TOPRIGHT", -spacing, -spacing)
 	optionsHost:SetPoint("LEFT", categoryList, "RIGHT", spacing, 0)
+	optionsHost:SetPoint("RIGHT", -spacing, 0)
+	optionsHost:SetPoint("TOP", header, "BOTTOM", 0, -spacing)
 	optionsHost:SetPoint("BOTTOM", buttonPanel, "TOP", 0, spacing)
 	style:frame(optionsHost)
 
