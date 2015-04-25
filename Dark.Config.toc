@@ -3,6 +3,7 @@
 ## Author: Darkend / DarkStorm / Zenedar / EU
 ## Version: 0.0.1
 ## Notes: DarkUI Configuration Window
+## RequiredDeps: Dark
 
 initialise.lua
 config.lua
