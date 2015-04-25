@@ -8,4 +8,6 @@
 initialise.lua
 config.lua
 
+components\window.lua
+
 run.lua
