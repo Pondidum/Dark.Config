@@ -1,5 +1,6 @@
 local addon, ns = ...
 local components = ns.components
+local spacer = components.spacer
 
 local style = ns.lib.style
 
@@ -39,24 +40,19 @@ components.window = function(self, config)
 	})
 
 	container:SetPoint("CENTER")
+
+	spacer:insetTop(header, spacing, container)
+	spacer:insetBottom(buttonPanel, spacing, container)
+
+	spacer:between(categoryList, spacing, { top = header, bottom = buttonPanel})
+	spacer:between(optionsHost, spacing, { top = header, bottom = buttonPanel, left = categoryList})
+
+	spacer:alignLeft(categoryList, spacing, container)
+	spacer:alignRight(categoryList, spacing, container)
+
 	style:frame(container)
-
-	header:SetPoint("TOPLEFT", spacing, -spacing)
-	header:SetPoint("TOPRIGHT", -spacing, -spacing)
-
-	categoryList:SetPoint("LEFT", spacing, 0)
-	categoryList:SetPoint("TOP", header, "BOTTOM", 0, -spacing)
-	categoryList:SetPoint("BOTTOM", buttonPanel, "TOP", 0, spacing)
 	style:frame(categoryList)
-
-	optionsHost:SetPoint("LEFT", categoryList, "RIGHT", spacing, 0)
-	optionsHost:SetPoint("RIGHT", -spacing, 0)
-	optionsHost:SetPoint("TOP", header, "BOTTOM", 0, -spacing)
-	optionsHost:SetPoint("BOTTOM", buttonPanel, "TOP", 0, spacing)
 	style:frame(optionsHost)
-
-	buttonPanel:SetPoint("BOTTOMLEFT", spacing, spacing)
-	buttonPanel:SetPoint("BOTTOMRIGHT", -spacing, spacing)
 
 	return container
 
