@@ -47,8 +47,8 @@ components.window = function(self, config)
 	spacer:between(categoryList, spacing, { top = header, bottom = buttonPanel})
 	spacer:between(optionsHost, spacing, { top = header, bottom = buttonPanel, left = categoryList})
 
-	spacer:alignLeft(categoryList, spacing, container)
-	spacer:alignRight(categoryList, spacing, container)
+	spacer:align(categoryList, spacing, { left = container })
+	spacer:align(optionsHost, spacing, { right = container })
 
 	style:frame(container)
 	style:frame(categoryList)
