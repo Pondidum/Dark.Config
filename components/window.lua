@@ -16,39 +16,25 @@ components.window = function(self, config)
 		height = 600
 	})
 
-	local header = self:frame({
-		name = "$parentHeader",
-		parent = container,
-		height = 40,
-	})
+	local child = self:createDefaults({ parent = container })
 
-	local categoryList = self:scrollFrame({
-		name = "$parentCategoriesList",
-		parent = container,
-		width = 200
-	})
-
-	local optionsHost = self:frame({
-		name = "$parentHostPanel",
-		parent = container
-	})
-
-	local buttonPanel = self:frame({
-		name = "$parentButtonPanel",
-		parent = container,
-		height = 40
-	})
+	local header = child:frame({ name = "$parentHeader", height = 40 })
+	local categoryList = child:scrollFrame({ name = "$parentCategoriesList", width = 200 })
+	local optionsHost = child:frame({ name = "$parentHostPanel" })
+	local cancelButton = child:button({ name = "$parentCancel" })
+	local acceptButton = child:button({ name = "$parentAccept" })
 
 	container:SetPoint("CENTER")
 
 	spacer:align(header, spacing, { left = container, top = container, right = container })
-	spacer:align(buttonPanel, spacing, { left = container, bottom = container, right = container })
+	spacer:align(cancelButton, spacing, { bottom = container, right = container})
+	spacer:between(acceptButton, spacing, { right = cancelButton })
 
 	spacer:align(categoryList, spacing, { left = container })
-	spacer:between(categoryList, spacing, { top = header, bottom = buttonPanel})
+	spacer:between(categoryList, spacing, { top = header, bottom = cancelButton})
 
 	spacer:align(optionsHost, spacing, { right = container })
-	spacer:between(optionsHost, spacing, { top = header, bottom = buttonPanel, left = categoryList})
+	spacer:between(optionsHost, spacing, { top = header, bottom = cancelButton, left = categoryList})
 
 	style:frame(container)
 	style:frame(categoryList)
