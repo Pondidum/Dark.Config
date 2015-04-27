@@ -37,11 +37,17 @@ components.window = function(self, config)
 	spacer:align(optionsHost, spacing, { right = container })
 	spacer:between(optionsHost, spacing, { top = header, bottom = cancelButton, left = categoryList})
 
-	style:frame(container)
-	style:frame(categoryList)
-	style:frame(optionsHost)
-	style:actionButton(cancelButton)
-	style:actionButton(acceptButton)
+	local colors = {
+		backgroundColor = { 0, 0, 0, 0.6 },
+		borderColor = { 1, 1, 1, 0.4 }
+	}
+
+	style:frame(container, colors)
+	style:frame(categoryList, colors)
+	style:frame(optionsHost, colors)
+	style:actionButton(cancelButton, colors)
+	style:actionButton(acceptButton, colors)
+
 
 	return container
 
