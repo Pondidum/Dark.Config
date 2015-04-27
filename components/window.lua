@@ -41,14 +41,14 @@ components.window = function(self, config)
 
 	container:SetPoint("CENTER")
 
-	spacer:insetTop(header, spacing, container)
-	spacer:insetBottom(buttonPanel, spacing, container)
-
-	spacer:between(categoryList, spacing, { top = header, bottom = buttonPanel})
-	spacer:between(optionsHost, spacing, { top = header, bottom = buttonPanel, left = categoryList})
+	spacer:align(header, spacing, { left = container, top = container, right = container })
+	spacer:align(buttonPanel, spacing, { left = container, bottom = container, right = container })
 
 	spacer:align(categoryList, spacing, { left = container })
+	spacer:between(categoryList, spacing, { top = header, bottom = buttonPanel})
+
 	spacer:align(optionsHost, spacing, { right = container })
+	spacer:between(optionsHost, spacing, { top = header, bottom = buttonPanel, left = categoryList})
 
 	style:frame(container)
 	style:frame(categoryList)
