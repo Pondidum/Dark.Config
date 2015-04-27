@@ -21,8 +21,9 @@ components.window = function(self, config)
 	local header = child:frame({ name = "$parentHeader", height = 40 })
 	local categoryList = child:scrollFrame({ name = "$parentCategoriesList", width = 200 })
 	local optionsHost = child:frame({ name = "$parentHostPanel" })
-	local cancelButton = child:button({ name = "$parentCancel" })
-	local acceptButton = child:button({ name = "$parentAccept" })
+
+	local cancelButton = child:button({ name = "$parentCancel", text = "Cancel", width = 70, height = 20 })
+	local acceptButton = child:button({ name = "$parentAccept", text = "Accept", width = 70, height = 20 })
 
 	container:SetPoint("CENTER")
 
@@ -39,6 +40,8 @@ components.window = function(self, config)
 	style:frame(container)
 	style:frame(categoryList)
 	style:frame(optionsHost)
+	style:actionButton(cancelButton)
+	style:actionButton(acceptButton)
 
 	return container
 
