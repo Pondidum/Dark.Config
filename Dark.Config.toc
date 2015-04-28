@@ -9,5 +9,6 @@ initialise.lua
 config.lua
 
 components\window.lua
+components\input.lua
 
 run.lua
