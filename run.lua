@@ -9,7 +9,6 @@ Dark.config = {
 	addPanel = function(self, name, buildChildren)
 
 		local panel = components:panel({ text = name })
-
 		local children = components:createDefaults({ parent = panel })
 
 		buildChildren(children)
