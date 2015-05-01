@@ -6,6 +6,7 @@ ns.lib = {
 	class = dark.class,
 	mixins = dark.mixins,
 	style = dark.style,
+	layout = dark.layoutEngine,
 }
 
 ns.components = setmetatable({}, { __index = dark.controls })

@@ -11,6 +11,10 @@ Dark.config = {
 		local panel = components:panel({ text = name })
 		local children = components:createDefaults({ parent = panel })
 
+		children.add = function(self, child)
+			panel:addChild(child)
+		end,
+
 		buildChildren(children)
 
 	end,
@@ -22,8 +26,8 @@ Dark.config = {
 
 
 Dark.config:addPanel("Interrupt", function(panel)
-	panel:input(config, "enabled", "boolean")
-	panel:input(config, "channel", "text")
-	panel:input(config, "suffix", "text")
-	panel:input(config, "notify", "text")
+	panel:add(panel:input(config, "enabled", "boolean"))
+	panel:add(panel:input(config, "channel", "text"))
+	panel:add(panel:input(config, "suffix", "text"))
+	panel:add(panel:input(config, "notify", "text"))
 end)
