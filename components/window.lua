@@ -19,7 +19,7 @@ components.window = function(self, config)
 	local child = self:createDefaults({ parent = container })
 
 	local header = child:frame({ name = "$parentHeader", height = 40 })
-	local categoryList = child:scrollFrame({ name = "$parentCategoriesList", width = 200 })
+	local categoryList = child:listbox({ name = "$parentCategoriesList", width = 200 })
 	local optionsHost = child:frame({ name = "$parentHostPanel" })
 
 	local cancelButton = child:button({ name = "$parentCancel", text = "Cancel", width = 70, height = 20 })
@@ -48,6 +48,14 @@ components.window = function(self, config)
 	style:actionButton(cancelButton, colors)
 	style:actionButton(acceptButton, colors)
 
+	container.addPanel = function(frame, name, panel)
+
+		local label = self:font({ text = name })
+
+		panel:SetAllPoints(optionsHost)
+		categoryList:addItem(label)
+
+	end
 
 	return container
 
