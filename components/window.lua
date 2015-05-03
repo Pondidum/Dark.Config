@@ -50,10 +50,12 @@ components.window = function(self, config)
 
 	container.addPanel = function(frame, name, panel)
 
-		local label = self:font({ text = name })
+		local button = self:button({ text = name, name = "DarkPanelInterrupt" })
+		button:SetSize(categoryList:GetWidth() - 20, 20)
+		style:button(button)
 
 		panel:SetAllPoints(optionsHost)
-		categoryList:addItem(label)
+		categoryList:addItem(button)
 
 	end
 
