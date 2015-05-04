@@ -3,7 +3,7 @@ local components = ns.components
 
 components.booleanInput = function(self, config)
 
-	local label = self:font({ text = config.label, width = config.labelWidth, align = "RIGHT" })
+	local label = self:inputLabel(config)
 	local check = self:checkbox()
 
 	check:SetPoint("LEFT", label, "RIGHT", 5, 0)

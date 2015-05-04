@@ -11,6 +11,7 @@ config.lua
 components\window.lua
 components\panel.lua
 components\input.lua
+components\inputLabel.lua
 components\booleanInput.lua
 components\textInput.lua
 
