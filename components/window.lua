@@ -65,6 +65,14 @@ components.window = function(self, config)
 	style:actionButton(cancelButton, colors)
 	style:actionButton(acceptButton, colors)
 
+	local allPanels = {}
+
+	local hidePanels = function()
+		for i,panel in ipairs(allPanels) do
+			panel:Hide()
+		end
+	end
+
 	container.addPanel = function(frame, name, panel)
 
 		local button = self:button({
@@ -73,17 +81,21 @@ components.window = function(self, config)
 			height = 20,
 			text = name,
 			onClick = function()
+
+				hidePanels()
+
 				panel:read()
 				panel:Show()
 
-				spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
 			end,
 		})
 
 		style:button(button)
 		categoryList:addItem(button)
 
-		panel:Hide()
+		spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
+		table.insert(allPanels, panel)
+		hidePanels()
 	end
 
 	return container
