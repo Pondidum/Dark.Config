@@ -22,8 +22,25 @@ components.window = function(self, config)
 	local categoryList = child:listbox({ name = "$parentCategoriesList", width = 200 })
 	local optionsHost = child:frame({ name = "$parentHostPanel" })
 
-	local cancelButton = child:button({ name = "$parentCancel", text = "Cancel", width = 70, height = 20 })
-	local acceptButton = child:button({ name = "$parentAccept", text = "Accept", width = 70, height = 20 })
+	local cancelButton = child:button({
+		name = "$parentCancel",
+		text = "Cancel",
+		width = 70,
+		height = 20,
+		onClick = function()
+			container:Hide()
+		end,
+	})
+
+	local acceptButton = child:button({
+		name = "$parentAccept",
+		text = "Accept",
+		width = 70,
+		height = 20,
+		onClick = function()
+			container:Hide()
+		end,
+	})
 
 	container:SetPoint("CENTER")
 
