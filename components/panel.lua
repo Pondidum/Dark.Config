@@ -19,6 +19,14 @@ components.panel = function(self, config)
 		engine:performLayout()
 	end
 
+	frame.read = function()
+
+		for i, child in ipairs(engine.children) do
+			child:read()
+		end
+
+	end
+
 	return frame
 
 end

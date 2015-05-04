@@ -70,7 +70,10 @@ components.window = function(self, config)
 		local button = self:button({
 			name = "DarkPanelInterrupt",
 			parent = categoryList,
-			text = name
+			text = name,
+			onClick = function()
+				panel:read()
+			end,
 		})
 
 		button:SetHeight(20)
