@@ -7,6 +7,8 @@ components.input = function(self, table, key, type)
 
 	return self[typeName](self, {
 		label = key,
+		labelWidth = 100,
+		controlWidth = 250,
 		read = function() return table[key] end,
 		write = function(value) table[key] = value end,
 	})

@@ -3,8 +3,8 @@ local components = ns.components
 
 components.textInput = function(self, config)
 
-	local label = self:font({ text = config.label })
-	local textbox = self:textbox()
+	local label = self:font({ text = config.label, width = config.labelWidth, align = "RIGHT" })
+	local textbox = self:textbox({ width = config.controlWidth })
 
 	textbox:SetPoint("LEFT", label, "RIGHT", 5, 0)
 
