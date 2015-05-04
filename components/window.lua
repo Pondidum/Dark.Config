@@ -70,18 +70,20 @@ components.window = function(self, config)
 		local button = self:button({
 			name = "DarkPanelInterrupt",
 			parent = categoryList,
+			height = 20,
 			text = name,
 			onClick = function()
 				panel:read()
+				panel:Show()
+
+				spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
 			end,
 		})
 
-		button:SetHeight(20)
 		style:button(button)
-
-		panel:SetAllPoints(optionsHost)
 		categoryList:addItem(button)
 
+		panel:Hide()
 	end
 
 	return container
