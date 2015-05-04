@@ -67,7 +67,12 @@ components.window = function(self, config)
 
 	container.addPanel = function(frame, name, panel)
 
-		local button = self:button({ text = name, name = "DarkPanelInterrupt" })
+		local button = self:button({
+			name = "DarkPanelInterrupt",
+			parent = categoryList,
+			text = name
+		})
+
 		button:SetSize(categoryList:GetWidth() - 20, 20)
 		style:button(button)
 
