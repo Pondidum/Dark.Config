@@ -73,7 +73,7 @@ components.window = function(self, config)
 			text = name
 		})
 
-		button:SetSize(categoryList:GetWidth() - 20, 20)
+		button:SetHeight(20)
 		style:button(button)
 
 		panel:SetAllPoints(optionsHost)
