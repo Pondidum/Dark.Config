@@ -100,7 +100,7 @@ components.window = function(self, config)
 			end,
 		})
 
-		style:button(button)
+		style:checkButton(button)
 		categoryList:addItem(button)
 
 		spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
