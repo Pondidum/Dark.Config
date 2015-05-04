@@ -11,7 +11,7 @@ components.panel = function(self, config)
 		origin = "TOP",
 		wrap = false,
 		autosize = "y",
-		itemSpacing = 5
+		itemSpacing = 15
 	})
 
 	frame.addChild = function(f, child)
