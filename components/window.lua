@@ -66,6 +66,7 @@ components.window = function(self, config)
 	style:actionButton(acceptButton, colors)
 
 	local allPanels = {}
+	local allButtons = {}
 
 	local hidePanels = function()
 		for i,panel in ipairs(allPanels) do
@@ -73,20 +74,29 @@ components.window = function(self, config)
 		end
 	end
 
+	local uncheckButtons = function()
+		for i, button in ipairs(allButtons) do
+			button:SetChecked(false)
+		end
+	end
+
 	container.addPanel = function(frame, name, panel)
 
 		local button = self:button({
+			type = "CheckButton",
 			name = "DarkPanelInterrupt",
 			parent = categoryList,
 			height = 20,
 			text = name,
-			onClick = function()
+			onClick = function(b)
 
 				hidePanels()
+				uncheckButtons()
 
 				panel:read()
 				panel:Show()
 
+				b:SetChecked(true)
 			end,
 		})
 
@@ -94,8 +104,12 @@ components.window = function(self, config)
 		categoryList:addItem(button)
 
 		spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
+
 		table.insert(allPanels, panel)
+		table.insert(allButtons, button)
+
 		hidePanels()
+		uncheckButtons()
 	end
 
 	return container
