@@ -8,7 +8,7 @@ components.panel = function(self, config)
 	local frame = self:frame({ parent = config.parent })
 	local engine = layout:new(frame, {
 		layout = "vertical",
-		origin = "TOP",
+		origin = "TOPLEFT",
 		wrap = false,
 		autosize = "y",
 		itemSpacing = 15
