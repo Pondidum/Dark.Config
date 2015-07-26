@@ -8,6 +8,8 @@
 initialise.lua
 config.lua
 
+panelController.lua
+
 components\window.lua
 components\panel.lua
 components\input.lua
