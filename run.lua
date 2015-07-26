@@ -14,11 +14,11 @@ Dark.config = {
 		local panel = components:panel({ parent = self.window })
 		local children = components:createDefaults({ parent = panel })
 
-		children.add = function(self, child)
-			panel:addChild(child)
-		end
+		local controls = buildChildren(children)
 
-		buildChildren(children)
+		for i, control in ipairs(controls) do
+			panel:addChild(control)
+		end
 
 		self.window:addPanel(name, panel)
 
@@ -30,13 +30,28 @@ Dark.config = {
 -- example:
 --[[
 
-local config = Dark.raids.config
+local config = {
 
-Dark.config:addPanel("Interrupt", function(panel)
-    panel:add(panel:input(config, "enabled", "boolean"))
-    panel:add(panel:input(config, "channel", "text"))
-    panel:add(panel:input(config, "suffix", "text"))
-    panel:add(panel:input(config, "notify", "text"))
+	interrupt = {
+		enabled = true,
+		channel = "SAY",
+		suffix = "Group 1 Next",
+		notify = "",
+	},
+}
+
+
+Dark.config:createWindow()
+
+Dark.config:addPanel("Interrupt", function(control)
+
+	return {
+    	control:input(config.interrupt, "enabled", "boolean"),
+    	control:input(config.interrupt, "channel", "text"),
+    	control:input(config.interrupt, "suffix", "text"),
+    	control:input(config.interrupt, "notify", "text")
+    }
+
 end)
-
 ]]
+
