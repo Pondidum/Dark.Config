@@ -27,6 +27,14 @@ components.panel = function(self, config)
 
 	end
 
+	frame.write = function()
+
+		for i, child in ipairs(engine.children) do
+			child:write()
+		end
+
+	end
+
 	return frame
 
 end
