@@ -4,11 +4,52 @@ local spacer = components.spacer
 
 local style = ns.lib.style
 
+
+local panelController = {
+
+	new = function(self)
+
+		local this = { panels = {} }
+
+		return setmetatable(this, { __index = self })
+
+	end,
+
+	add = function(self, panel)
+		table.insert(self.panels, panel)
+	end,
+
+	switchTo = function(self, panel)
+
+		self:hideAll()
+		panel:read()
+		panel:Show()
+
+	end,
+
+	writeAll = function(self)
+		for i, panel in ipairs(self.panels) do
+			panel:write()
+		end
+	end,
+
+	hideAll = function(self)
+		for i,panel in ipairs(self.panels) do
+			panel:Hide()
+		end
+	end,
+}
+
+
+
 components.window = function(self, config)
 
 	config = config or {}
 
 	local spacing = 10
+
+	local panels = panelController:new()
+
 
 	local container = self:frame({
 		name = config.name,
@@ -38,6 +79,7 @@ components.window = function(self, config)
 		width = 70,
 		height = 20,
 		onClick = function()
+			panels:writeAll()
 			container:Hide()
 		end,
 	})
@@ -65,14 +107,7 @@ components.window = function(self, config)
 	style:actionButton(cancelButton, colors)
 	style:actionButton(acceptButton, colors)
 
-	local allPanels = {}
 	local allButtons = {}
-
-	local hidePanels = function()
-		for i,panel in ipairs(allPanels) do
-			panel:Hide()
-		end
-	end
 
 	local uncheckButtons = function()
 		for i, button in ipairs(allButtons) do
@@ -90,12 +125,9 @@ components.window = function(self, config)
 			text = name,
 			onClick = function(b)
 
-				hidePanels()
+				panels:switchTo(panel)
+
 				uncheckButtons()
-
-				panel:read()
-				panel:Show()
-
 				b:SetChecked(true)
 			end,
 		})
@@ -105,10 +137,10 @@ components.window = function(self, config)
 
 		spacer:align(panel, spacing, { top = optionsHost, right = optionsHost, bottom = optionsHost, left = optionsHost })
 
-		table.insert(allPanels, panel)
+		panels:add(panel)
 		table.insert(allButtons, button)
 
-		hidePanels()
+		panels:hideAll()
 		uncheckButtons()
 	end
 
