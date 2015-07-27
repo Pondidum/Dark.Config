@@ -16,5 +16,6 @@ components\input.lua
 components\inputLabel.lua
 components\booleanInput.lua
 components\textInput.lua
+components\uiToggle.lua
 
 run.lua

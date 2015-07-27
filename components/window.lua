@@ -17,6 +17,23 @@ components.window = function(self, config)
 		height = 600
 	})
 
+	container.toggle = function()
+		if container:IsShown() then
+			container:Hide()
+		else
+			container:Show()
+		end
+	end
+
+	container.accept = function()
+		panels:writeAll()
+		container:Hide()
+	end
+
+	container.cancel = function()
+		container:Hide()
+	end
+
 	local child = self:createDefaults({ parent = container })
 
 	local header = child:frame({ name = "$parentHeader", height = 40 })
@@ -28,9 +45,7 @@ components.window = function(self, config)
 		text = "Cancel",
 		width = 70,
 		height = 20,
-		onClick = function()
-			container:Hide()
-		end,
+		onClick = container.cancel,
 	})
 
 	local acceptButton = child:button({
@@ -38,12 +53,10 @@ components.window = function(self, config)
 		text = "Accept",
 		width = 70,
 		height = 20,
-		onClick = function()
-			panels:writeAll()
-			container:Hide()
-		end,
+		onClick = container.accept,
 	})
 
+	container:Hide()
 	container:SetPoint("CENTER")
 
 	spacer:align(header, spacing, { left = container, top = container, right = container })
