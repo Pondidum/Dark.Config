@@ -7,6 +7,7 @@ Dark.config = {
 
 	createWindow = function(self)
 		self.window = components:window({ name = "DarkConfigui" })
+		self.toggle = components:uiToggle({ name = "DarkConfiguiToggle", onClick = self.window.toggle})
 	end,
 
 	addPanel = function(self, name, buildChildren)
