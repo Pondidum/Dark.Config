@@ -1,5 +1,5 @@
 ## Interface: 60000
-## Title: Dark.Config
+## Title: Dark.Options
 ## Author: Darkend / DarkStorm / Zenedar / EU
 ## Version: 0.0.1
 ## Notes: DarkUI Configuration Window
