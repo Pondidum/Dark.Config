@@ -31,4 +31,4 @@ local options = {
 	end,
 }
 
-Darker.config = options:new()
+Darker.options = options:new()
