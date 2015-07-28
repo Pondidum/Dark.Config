@@ -1,7 +1,12 @@
 local addon, ns = ...
 local components = ns.components
 
-Dark.config = {
+local options = {
+
+	new = function(self)
+		self:createWindow()
+		return self
+	end,
 
 	components = components,
 
@@ -24,35 +29,6 @@ Dark.config = {
 		self.window:addPanel(name, panel)
 
 	end,
-
 }
 
-
--- example:
---[[
-
-local config = {
-
-	interrupt = {
-		enabled = true,
-		channel = "SAY",
-		suffix = "Group 1 Next",
-		notify = "",
-	},
-}
-
-
-Dark.config:createWindow()
-
-Dark.config:addPanel("Interrupt", function(control)
-
-	return {
-    	control:input(config.interrupt, "enabled", "boolean"),
-    	control:input(config.interrupt, "channel", "text"),
-    	control:input(config.interrupt, "suffix", "text"),
-    	control:input(config.interrupt, "notify", "text")
-    }
-
-end)
-]]
-
+Darker.config = options:new()
