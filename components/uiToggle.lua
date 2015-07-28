@@ -8,10 +8,9 @@ components.uiToggle = function(self, config)
 		name = config.name,
 		width = 15,
 		height = 15,
+		icon = ns.config.configIcon,
 		onClick = config.onClick
 	})
-
-	toggleConfigButton.icon:SetTexture(ns.config.configIcon)
 
 	style:button(toggleConfigButton)
 	toggleConfigButton:SetPoint("RIGHT", MinimapZoneText, "RIGHT")
