@@ -77,8 +77,8 @@ components.window = function(self, config)
 	style:frame(container, colors)
 	style:frame(categoryList, colors)
 	style:frame(optionsHost, colors)
-	style:actionButton(cancelButton, colors)
-	style:actionButton(acceptButton, colors)
+	style:button(cancelButton, colors)
+	style:button(acceptButton, colors)
 
 	local allButtons = {}
 

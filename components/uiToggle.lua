@@ -12,7 +12,7 @@ components.uiToggle = function(self, config)
 		onClick = config.onClick
 	})
 
-	style:actionButton(toggleConfigButton)
+	style:button(toggleConfigButton)
 	toggleConfigButton:SetPoint("RIGHT", MinimapZoneText, "RIGHT")
 
 end
