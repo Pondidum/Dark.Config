@@ -36,7 +36,6 @@ components.window = function(self, config)
 
 	local child = self:createDefaults({ parent = container })
 
-	local header = child:frame({ name = "$parentHeader", height = 40 })
 	local categoryList = child:listbox({ name = "$parentCategoriesList", width = 200 })
 	local optionsHost = child:frame({ name = "$parentHostPanel" })
 
@@ -59,15 +58,14 @@ components.window = function(self, config)
 	container:Hide()
 	container:SetPoint("CENTER")
 
-	spacer:align(header, spacing, { left = container, top = container, right = container })
 	spacer:align(cancelButton, spacing, { bottom = container, right = container})
 	spacer:between(acceptButton, spacing, { right = cancelButton })
 
-	spacer:align(categoryList, spacing, { left = container })
-	spacer:between(categoryList, spacing, { top = header, bottom = cancelButton})
+	spacer:align(categoryList, spacing, { left = container, top = container })
+	spacer:between(categoryList, spacing, { bottom = cancelButton})
 
-	spacer:align(optionsHost, spacing, { right = container })
-	spacer:between(optionsHost, spacing, { top = header, bottom = cancelButton, left = categoryList})
+	spacer:align(optionsHost, spacing, { right = container, top = container })
+	spacer:between(optionsHost, spacing, { bottom = cancelButton, left = categoryList})
 
 	local colors = {
 		backgroundColor = { 0, 0, 0, 0.6 },
