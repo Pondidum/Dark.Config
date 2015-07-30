@@ -57,6 +57,7 @@ components.window = function(self, config)
 
 	container:Hide()
 	container:SetPoint("CENTER")
+	container:SetFrameStrata("DIALOG")
 
 	spacer:align(cancelButton, spacing, { bottom = container, right = container})
 	spacer:between(acceptButton, spacing, { right = cancelButton })
@@ -114,6 +115,10 @@ components.window = function(self, config)
 		panels:hideAll()
 		uncheckButtons()
 	end
+
+
+	tinsert(UISpecialFrames, container:GetName())
+	UIPanelWindows[container:GetName()] = {area = "center", pushable = 0, whileDead = 1 }
 
 	return container
 
