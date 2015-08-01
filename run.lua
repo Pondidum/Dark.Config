@@ -20,6 +20,10 @@ local options = {
 		local panel = components:panel({ parent = self.window })
 		local children = components:createDefaults({ parent = panel })
 
+		children.onWrite = function(_, action)
+			panel.written = action
+		end
+
 		local controls = buildChildren(children)
 
 		for i, control in ipairs(controls) do

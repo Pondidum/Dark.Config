@@ -33,7 +33,11 @@ components.panel = function(self, config)
 			child:write()
 		end
 
+		frame:written()
+
 	end
+
+	frame.written = function() end
 
 	return frame
 
