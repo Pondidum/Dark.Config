@@ -12,6 +12,7 @@ local panelController = {
 
 	add = function(self, panel)
 		table.insert(self.panels, panel)
+		panel:read()
 	end,
 
 	switchTo = function(self, panel)
